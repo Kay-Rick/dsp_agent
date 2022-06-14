@@ -1,0 +1,12 @@
+{
+	"REGISTRY_CENTER":"192.168.1.119:8500",
+    "agent_ip": "192.168.1.147",
+    "agent_port": 5103,
+    "agent_health_port":5203,
+    "service_name": "DSP_agent",
+    "weight": 1,
+    "ssdp_server_ip": "192.168.1.147",
+    "ssdp_server_port": 8080,
+    "is_regist_service": 1
+}
+

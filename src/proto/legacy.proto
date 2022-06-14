@@ -1,0 +1,49 @@
+syntax = "proto3";// You can use either proto2 or proto3. Both are supported by srpc
+
+message DSPControllerRequest{};
+message DSPControllerResponse{};
+
+message ReconstructTimeResponse{
+    float time = 1;
+};
+
+message ConfigRequest{
+    string objid = 1;
+};
+
+service DSPController{
+    rpc LoadSarApp(DSPControllerRequest) returns (DSPControllerResponse);
+    rpc StartSarApp(DSPControllerRequest) returns (DSPControllerResponse);
+    rpc StopSarApp(DSPControllerRequest) returns (DSPControllerResponse);
+    rpc SwitchSarApp(DSPControllerRequest) returns (DSPControllerResponse);
+
+    rpc LoadElecReco(DSPControllerRequest) returns (DSPControllerResponse);
+    rpc StartElecReco(DSPControllerRequest) returns (DSPControllerResponse);
+    rpc StopElecReco(DSPControllerRequest) returns (DSPControllerResponse);
+    rpc SwitchElecReco(DSPControllerRequest) returns (DSPControllerResponse);
+    
+
+    rpc LoadCommunication(DSPControllerRequest) returns (DSPControllerResponse);
+    rpc StartCommunication(DSPControllerRequest) returns (DSPControllerResponse);
+    rpc StopCommunication(DSPControllerRequest) returns (DSPControllerResponse);
+    rpc SwitchCommunication(DSPControllerRequest) returns (DSPControllerResponse);
+    rpc ConfigCommunication(ConfigRequest) returns (DSPControllerResponse);
+
+    rpc LoadNavigation(DSPControllerRequest) returns (DSPControllerResponse);
+    rpc StartNavigation(DSPControllerRequest) returns (DSPControllerResponse);
+    rpc StopNavigation(DSPControllerRequest) returns (DSPControllerResponse);
+    rpc SwitchNavigation(DSPControllerRequest) returns (DSPControllerResponse);
+    rpc ConfigNavigation(ConfigRequest) returns (DSPControllerResponse);
+
+    rpc LoadElectricJam(DSPControllerRequest) returns (DSPControllerResponse);
+    rpc StartElectricJam(DSPControllerRequest) returns (DSPControllerResponse);
+    rpc StopElectricJam(DSPControllerRequest) returns (DSPControllerResponse);
+    rpc SwitchElectricJam(DSPControllerRequest) returns (DSPControllerResponse);
+    rpc ConfigElectricJam(ConfigRequest) returns (DSPControllerResponse);
+    
+    rpc GetComReconstructTime(DSPControllerRequest) returns(ReconstructTimeResponse);
+    rpc GetSarReconstructTime(DSPControllerRequest) returns(ReconstructTimeResponse);
+    rpc GetElecReconstructTime(DSPControllerRequest) returns(ReconstructTimeResponse);
+    rpc GetNavReconstructTime(DSPControllerRequest) returns(ReconstructTimeResponse);
+    rpc GetJamReconstructTime(DSPControllerRequest) returns(ReconstructTimeResponse);
+};
